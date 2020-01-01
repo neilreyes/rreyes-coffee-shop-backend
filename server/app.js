@@ -11,10 +11,11 @@ const cookieParser = require("cookie-parser");
 const app = express();
 require("dotenv").config();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 1337;
 require("./database")();
 
 // Include middlewares
+app.use(require("cors")());
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
